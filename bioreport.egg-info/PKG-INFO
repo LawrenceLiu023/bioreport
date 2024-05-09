@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: bioreport
+Version: 1.0.0
+Author: liujiahuan
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: rich>=13.0.0
+Requires-Dist: beautifulsoup4>=4.12.0

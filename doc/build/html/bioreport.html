@@ -1,0 +1,895 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bioreport package &#8212; bioproject 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bioreport';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">bioproject 1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="bioreport.modules.html">bioreport.modules package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="bioreport.modules.bismark.html">bioreport.modules.bismark package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bioreport.modules.fastp.html">bioreport.modules.fastp package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">bioreport package</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bioreport-package">
+<h1>bioreport package<a class="headerlink" href="#bioreport-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bioreport.modules.html">bioreport.modules package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bioreport.modules.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bioreport.modules.bismark.html">bioreport.modules.bismark package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.bismark.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.bismark.html#module-bioreport.modules.bismark.bismark">bioreport.modules.bismark.bismark module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.bismark.html#module-bioreport.modules.bismark">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bioreport.modules.fastp.html">bioreport.modules.fastp package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.fastp.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.fastp.html#module-bioreport.modules.fastp.fastp">bioreport.modules.fastp.fastp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bioreport.modules.fastp.html#module-bioreport.modules.fastp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bioreport.modules.html#module-bioreport.modules">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-bioreport.report">
+<span id="bioreport-report-module"></span><h2>bioreport.report module<a class="headerlink" href="#module-bioreport.report" title="Link to this heading">#</a></h2>
+<p>Process bioinformatics report.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bioreport.report.Report">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioreport.report.</span></span><span class="sig-name descname"><span class="pre">Report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioreport/report.html#Report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class represent different types of report files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">pathlib.Path</span></dt><dd><p>The path to the report file.</p>
+</dd>
+<dt><strong>module</strong><span class="classifier">tuple[str, …]</span></dt><dd><p>The type of the file. The length of the tuple could be 0, 1 or 2.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>with_empty_module() -&gt; None</strong></p></td>
+<td><p>Check if the module is empty.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>match_file(file_name: str) -&gt; Report</strong></p></td>
+<td><p>Match a single file. Determine which type of report it is and return a <cite>Report</cite> object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>with_matched_module() -&gt; bool</strong></p></td>
+<td><p>Check if the <cite>module</cite> of the <cite>Report</cite> object is matched with the actual pattern of the file specified by <cite>path</cite>. Return <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>update_module() -&gt; None</strong></p></td>
+<td><p>Update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>parse(update_module: bool = False, *, name: Hashable | None = None) -&gt; ReportSum</strong></p></td>
+<td><p>Parse the report file. Return a <cite>ReportSum</cite> object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report.Report.match_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">match_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.match_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report.match_file" title="Link to this definition">#</a></dt>
+<dd><p>Match a single file. Determine which type of report it is and return a <cite>Report</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file</strong><span class="classifier">str | pathlib.Path</span></dt><dd><p>The file to match.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report</strong><span class="classifier">Report</span></dt><dd><p>The type of the file. The length of the tuple could be 0, 1 or 2.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report.Report.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Hashable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bioreport.report_sum.ReportSum" title="bioreport.report_sum.ReportSum"><span class="pre">ReportSum</span></a></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report.parse" title="Link to this definition">#</a></dt>
+<dd><p>Parse the report file. Return a <cite>ReportSum</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>update_module</strong><span class="classifier">bool</span></dt><dd><p>Whether update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report_sum</strong><span class="classifier">ReportSum</span></dt><dd><p>The parsed report.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report.Report.update_module">
+<span class="sig-name descname"><span class="pre">update_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.update_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report.update_module" title="Link to this definition">#</a></dt>
+<dd><p>Update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report.Report.with_empty_module">
+<span class="sig-name descname"><span class="pre">with_empty_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.with_empty_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report.with_empty_module" title="Link to this definition">#</a></dt>
+<dd><p>Check if the module is empty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>with_empty_module</strong><span class="classifier">bool</span></dt><dd><p>The <cite>module</cite> is empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report.Report.with_matched_module">
+<span class="sig-name descname"><span class="pre">with_matched_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.with_matched_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report.Report.with_matched_module" title="Link to this definition">#</a></dt>
+<dd><p>Check if the <cite>module</cite> of the <cite>Report</cite> object is matched with the actual pattern of the file specified by <cite>path</cite>. Return <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>is_matched</strong><span class="classifier">bool</span></dt><dd><p>Whether the <cite>module</cite> is matched. <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-bioreport.report_sum">
+<span id="bioreport-report-sum-module"></span><h2>bioreport.report_sum module<a class="headerlink" href="#module-bioreport.report_sum" title="Link to this heading">#</a></h2>
+<p>Summary of bioinformatics report.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bioreport.report_sum.ReportSum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioreport.report_sum.</span></span><span class="sig-name descname"><span class="pre">ReportSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report_sum.ReportSum" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a summary of a report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>module</strong><span class="classifier">tuple[str, …]</span></dt><dd><p>The module of the report.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">pd.Series</span></dt><dd><p>The data of the report.</p>
+</dd>
+<dt><a class="reference internal" href="#bioreport.report_sum.ReportSum.name" title="bioreport.report_sum.ReportSum.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a><span class="classifier">Hashable | None</span></dt><dd><p>Get the name of the <cite>data</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>concat(report_sums: Iterable[Self], join: Literal[“inner”, “outer”] = “outer”) -&gt; pd.DataFrame</strong></p></td>
+<td><p>Concatenate multiple <cite>ReportSum</cite> objects into one.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report_sum.ReportSum.concat">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_sums</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'inner'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'outer'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'outer'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum.concat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report_sum.ReportSum.concat" title="Link to this definition">#</a></dt>
+<dd><p>Concatenate multiple <cite>ReportSum</cite> objects into one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>report_sums</strong><span class="classifier">Iterable[Self]</span></dt><dd><p>Multiple <cite>ReportSum</cite> objects.</p>
+</dd>
+<dt><strong>join</strong><span class="classifier">Literal[“inner”, “outer”], optional</span></dt><dd><p>How to handle indexes on other axis (or axes).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>multi_report_sum</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>A dataframe containing the concatenated data from all <cite>ReportSum</cite> objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bioreport.report_sum.ReportSum.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Hashable</span></em><a class="headerlink" href="#bioreport.report_sum.ReportSum.name" title="Link to this definition">#</a></dt>
+<dd><p>Get the name of the <cite>data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">Hashable</span></dt><dd><p>_description_</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.report_sum.ReportSum.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Hashable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.report_sum.ReportSum.rename" title="Link to this definition">#</a></dt>
+<dd><p>Change the name of the <cite>data</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-bioreport.search">
+<span id="bioreport-search-module"></span><h2>bioreport.search module<a class="headerlink" href="#module-bioreport.search" title="Link to this heading">#</a></h2>
+<p>Search for report files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="bioreport.search.scan_dir">
+<span class="sig-prename descclassname"><span class="pre">bioreport.search.</span></span><span class="sig-name descname"><span class="pre">scan_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#bioreport.report.Report" title="bioreport.report.Report"><span class="pre">Report</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/bioreport/search.html#scan_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.search.scan_dir" title="Link to this definition">#</a></dt>
+<dd><p>Scan a directory to find all the report files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dir</strong><span class="classifier">str | pathlib.Path</span></dt><dd><p>The directory to scan.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report_list</strong><span class="classifier">list[Report]</span></dt><dd><p>A list of <cite>Report</cite> objects. <cite>Report.path</cite> is the report file path. <cite>Report.module</cite> is a tuple of the type of the report.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bioreport">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bioreport" title="Link to this heading">#</a></h2>
+<section id="bioreport">
+<h3>bioreport<a class="headerlink" href="#bioreport" title="Link to this heading">#</a></h3>
+<p>Bioreport is a Python package for parsing and searching reports generated by bioinformatics programmes.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="bioreport.Report">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioreport.</span></span><span class="sig-name descname"><span class="pre">Report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioreport/report.html#Report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class represent different types of report files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">pathlib.Path</span></dt><dd><p>The path to the report file.</p>
+</dd>
+<dt><strong>module</strong><span class="classifier">tuple[str, …]</span></dt><dd><p>The type of the file. The length of the tuple could be 0, 1 or 2.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>with_empty_module() -&gt; None</strong></p></td>
+<td><p>Check if the module is empty.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>match_file(file_name: str) -&gt; Report</strong></p></td>
+<td><p>Match a single file. Determine which type of report it is and return a <cite>Report</cite> object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>with_matched_module() -&gt; bool</strong></p></td>
+<td><p>Check if the <cite>module</cite> of the <cite>Report</cite> object is matched with the actual pattern of the file specified by <cite>path</cite>. Return <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>update_module() -&gt; None</strong></p></td>
+<td><p>Update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>parse(update_module: bool = False, *, name: Hashable | None = None) -&gt; ReportSum</strong></p></td>
+<td><p>Parse the report file. Return a <cite>ReportSum</cite> object.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.Report.match_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">match_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.match_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report.match_file" title="Link to this definition">#</a></dt>
+<dd><p>Match a single file. Determine which type of report it is and return a <cite>Report</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file</strong><span class="classifier">str | pathlib.Path</span></dt><dd><p>The file to match.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report</strong><span class="classifier">Report</span></dt><dd><p>The type of the file. The length of the tuple could be 0, 1 or 2.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.Report.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update_module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Hashable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#bioreport.report_sum.ReportSum" title="bioreport.report_sum.ReportSum"><span class="pre">ReportSum</span></a></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report.parse" title="Link to this definition">#</a></dt>
+<dd><p>Parse the report file. Return a <cite>ReportSum</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>update_module</strong><span class="classifier">bool</span></dt><dd><p>Whether update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report_sum</strong><span class="classifier">ReportSum</span></dt><dd><p>The parsed report.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.Report.update_module">
+<span class="sig-name descname"><span class="pre">update_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.update_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report.update_module" title="Link to this definition">#</a></dt>
+<dd><p>Update the <cite>module</cite> of the <cite>Report</cite> object with the actual pattern of the file specified by <cite>path</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.Report.with_empty_module">
+<span class="sig-name descname"><span class="pre">with_empty_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.with_empty_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report.with_empty_module" title="Link to this definition">#</a></dt>
+<dd><p>Check if the module is empty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>with_empty_module</strong><span class="classifier">bool</span></dt><dd><p>The <cite>module</cite> is empty.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.Report.with_matched_module">
+<span class="sig-name descname"><span class="pre">with_matched_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/bioreport/report.html#Report.with_matched_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.Report.with_matched_module" title="Link to this definition">#</a></dt>
+<dd><p>Check if the <cite>module</cite> of the <cite>Report</cite> object is matched with the actual pattern of the file specified by <cite>path</cite>. Return <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>is_matched</strong><span class="classifier">bool</span></dt><dd><p>Whether the <cite>module</cite> is matched. <cite>True</cite> if the <cite>module</cite> is matched, otherwise return <cite>False</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bioreport.ReportSum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bioreport.</span></span><span class="sig-name descname"><span class="pre">ReportSum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.ReportSum" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a summary of a report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>module</strong><span class="classifier">tuple[str, …]</span></dt><dd><p>The module of the report.</p>
+</dd>
+<dt><strong>data</strong><span class="classifier">pd.Series</span></dt><dd><p>The data of the report.</p>
+</dd>
+<dt><a class="reference internal" href="#bioreport.ReportSum.name" title="bioreport.ReportSum.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a><span class="classifier">Hashable | None</span></dt><dd><p>Get the name of the <cite>data</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>concat(report_sums: Iterable[Self], join: Literal[“inner”, “outer”] = “outer”) -&gt; pd.DataFrame</strong></p></td>
+<td><p>Concatenate multiple <cite>ReportSum</cite> objects into one.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.ReportSum.concat">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">concat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_sums</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">join</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'inner'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'outer'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'outer'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum.concat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.ReportSum.concat" title="Link to this definition">#</a></dt>
+<dd><p>Concatenate multiple <cite>ReportSum</cite> objects into one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>report_sums</strong><span class="classifier">Iterable[Self]</span></dt><dd><p>Multiple <cite>ReportSum</cite> objects.</p>
+</dd>
+<dt><strong>join</strong><span class="classifier">Literal[“inner”, “outer”], optional</span></dt><dd><p>How to handle indexes on other axis (or axes).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>multi_report_sum</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>A dataframe containing the concatenated data from all <cite>ReportSum</cite> objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="bioreport.ReportSum.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Hashable</span></em><a class="headerlink" href="#bioreport.ReportSum.name" title="Link to this definition">#</a></dt>
+<dd><p>Get the name of the <cite>data</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">Hashable</span></dt><dd><p>_description_</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bioreport.ReportSum.rename">
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Hashable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/bioreport/report_sum.html#ReportSum.rename"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.ReportSum.rename" title="Link to this definition">#</a></dt>
+<dd><p>Change the name of the <cite>data</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bioreport.scan_dir">
+<span class="sig-prename descclassname"><span class="pre">bioreport.</span></span><span class="sig-name descname"><span class="pre">scan_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#bioreport.report.Report" title="bioreport.report.Report"><span class="pre">Report</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/bioreport/search.html#scan_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bioreport.scan_dir" title="Link to this definition">#</a></dt>
+<dd><p>Scan a directory to find all the report files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>dir</strong><span class="classifier">str | pathlib.Path</span></dt><dd><p>The directory to scan.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>report_list</strong><span class="classifier">list[Report]</span></dt><dd><p>A list of <cite>Report</cite> objects. <cite>Report.path</cite> is the report file path. <cite>Report.module</cite> is a tuple of the type of the report.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bioreport.report">bioreport.report module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report"><code class="docutils literal notranslate"><span class="pre">Report</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report.match_file"><code class="docutils literal notranslate"><span class="pre">Report.match_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report.parse"><code class="docutils literal notranslate"><span class="pre">Report.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report.update_module"><code class="docutils literal notranslate"><span class="pre">Report.update_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report.with_empty_module"><code class="docutils literal notranslate"><span class="pre">Report.with_empty_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report.Report.with_matched_module"><code class="docutils literal notranslate"><span class="pre">Report.with_matched_module()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bioreport.report_sum">bioreport.report_sum module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report_sum.ReportSum"><code class="docutils literal notranslate"><span class="pre">ReportSum</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report_sum.ReportSum.concat"><code class="docutils literal notranslate"><span class="pre">ReportSum.concat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report_sum.ReportSum.name"><code class="docutils literal notranslate"><span class="pre">ReportSum.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.report_sum.ReportSum.rename"><code class="docutils literal notranslate"><span class="pre">ReportSum.rename()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bioreport.search">bioreport.search module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.search.scan_dir"><code class="docutils literal notranslate"><span class="pre">scan_dir()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bioreport">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport">bioreport</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report"><code class="docutils literal notranslate"><span class="pre">Report</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report.match_file"><code class="docutils literal notranslate"><span class="pre">Report.match_file()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report.parse"><code class="docutils literal notranslate"><span class="pre">Report.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report.update_module"><code class="docutils literal notranslate"><span class="pre">Report.update_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report.with_empty_module"><code class="docutils literal notranslate"><span class="pre">Report.with_empty_module()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.Report.with_matched_module"><code class="docutils literal notranslate"><span class="pre">Report.with_matched_module()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.ReportSum"><code class="docutils literal notranslate"><span class="pre">ReportSum</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.ReportSum.concat"><code class="docutils literal notranslate"><span class="pre">ReportSum.concat()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.ReportSum.name"><code class="docutils literal notranslate"><span class="pre">ReportSum.name</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.ReportSum.rename"><code class="docutils literal notranslate"><span class="pre">ReportSum.rename()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bioreport.scan_dir"><code class="docutils literal notranslate"><span class="pre">scan_dir()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/bioreport.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, liujiahuan.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
