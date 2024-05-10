@@ -12,15 +12,15 @@ sys.path.insert(0, str(pathlib.Path("../../bioreport").absolute()))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "bioproject"
-copyright = "2024, liujiahuan"
-author = "liujiahuan"
-release = "1.0"
+copyright = "2024, Lawrence Liu"
+author = "Lawrence Liu"
+release = "1.1.1"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["sphinx.ext.autodoc", "numpydoc", "sphinx.ext.viewcode"]
-
+source_encoding = "utf-8"
 templates_path = ["_templates"]
 exclude_patterns = []
 
