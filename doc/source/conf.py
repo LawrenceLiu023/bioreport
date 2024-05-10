@@ -30,3 +30,4 @@ exclude_patterns = []
 
 html_theme = "pydata_sphinx_theme"
 html_static_path = []
+html_theme_options = {"navigation_with_keys": "false"}
