@@ -18,6 +18,7 @@ setup(
     include_package_data=True,
     package_data={},
     exclude_package_data={},
+    python_requires=">=3.12.0",
     install_requires=[
         "pandas>=2.0.0",
         "rich>=13.0.0",

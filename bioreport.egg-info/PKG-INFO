@@ -1,7 +1,8 @@
 Metadata-Version: 2.1
 Name: bioreport
-Version: 1.0.0
+Version: 1.1.1
 Author: liujiahuan
+Requires-Python: >=3.12.0
 License-File: LICENSE
 Requires-Dist: pandas>=2.0.0
 Requires-Dist: rich>=13.0.0
