@@ -1,14 +1,6 @@
 bioreport package
 =================
 
-Subpackages
------------
-
-.. toctree::
-   :maxdepth: 4
-
-   bioreport.modules
-
 Submodules
 ----------
 

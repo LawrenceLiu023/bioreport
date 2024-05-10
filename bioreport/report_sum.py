@@ -63,9 +63,12 @@ class ReportSum:
         multi_report_sum : pd.DataFrame
             A dataframe containing the concatenated data from all `ReportSum` objects.
         """
-        report_sum_module_set:set = set(report_sum.module for report_sum in report_sums)
-        if len(report_sum_module_set) > 1:
-            raise ValueError("All report_sums must have the same module.")
+        report_sum_module_list: list = [report_sum.module for report_sum in report_sums]
+        if len(set(report_sum_module_list)) > 1:
+            error_modules_str: str = ",".join(list(map(str, report_sum_module_list)))
+            raise ValueError(
+                f"All report_sums must have the same module. The modules of the reports are: {error_modules_str}"
+            )
         multi_report_sum: pd.DataFrame = pd.concat(
             [report_sum.data for report_sum in report_sums], axis=1, join=join
         )

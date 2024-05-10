@@ -16,7 +16,7 @@ with open(_report_pattern_path, "rb") as report_pattern_file:
 REPORT_PATTERN_NAME_SEP: str = "-"  # separator of key, i.e. "fastp-json"
 
 # modules
-MODULES_DIR_BASENAME: str = "modules"
+MODULES_DIR_BASENAME: str = "_modules"
 MODULES_DIR_PATH: pathlib.Path = PACKAGE_DIR_PATH / MODULES_DIR_BASENAME
 _modules_dict: defaultdict[str, list[str]] = defaultdict(list)
 for _curr_key in REPORT_PATTERN.keys():
