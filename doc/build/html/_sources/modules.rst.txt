@@ -1,6 +1,7 @@
+:orphan:
+
 bioreport
 =========
-
 .. toctree::
    :maxdepth: 4
 
