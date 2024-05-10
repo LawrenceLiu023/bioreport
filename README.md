@@ -35,4 +35,4 @@ report_sum_list = [r.parse() for r in report_list]
 combined_report = bioreport.ReportSum.concat(report_sum_list)
 ```
 
-For more details, please see the [documentation](https://gitlab.ish.org.cn/digest-angel/methylation/bioreport/-/blob/main/doc/build/html/bioreport.html).
+For more details, please see the [documentation](https://bioreport.readthedocs.io/en/latest/).
