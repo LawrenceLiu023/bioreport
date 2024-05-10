@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioreport"
+authors = [{ name = "liujiahuan" }]
+license = { text = "Apache License 2.0" }
+requires-python = ">=3.12.0"
+dependencies = ["pandas>=2.0.0", "rich>=13.0.0", "beautifulsoup4>=4.12.0"]
+dynamic = ["version", "readme"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bioreport*"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+version = { attr = "bioreport.__version__" }
+readme = { file = "README.md" }
+
+[tool.uv.pip]
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[tool.ruff]
+select = [
+    "D",   # Enable `D` rule code prefix (pydocstyle)
+    "FIX", # Enable `FIX` rule code prefix (flake8-fixme)
+    "I",   # Enable `I` rule code prefix (isort)
+    "N",   # Enable `N` rule code prefix (pep8-naming)
+    "NPY", # Enable `NPY` rule code prefix (Numpy-specific rules)
+    "PD",  # Enable `PD` rule code prefix (pandas-vet)
+    "PL",  # Enable `PL` rule code prefix (Pylint)
+    "TD",  # Enable `TD` rule code prefix (flake8-todos)
+    "W",   # Enable `W` rule code prefix (pycodestyle warning)
+]
+ignore = [
+    "E501", # Never enforce `E501` (line length violations).
+    "D400", # Never enforce `D400` (docstring第一行要求英文句号结尾).
+    "W505", # Doc line too long.
+]
+unfixable = [
+    "F401", # Avoid trying to fix `F401` (unused-import).
+    "F841", # Avoid trying to fix `F841` (unused-variable).
+]
+pycodestyle.ignore-overlong-task-comments = true # Whether line-length violations (E501) should be triggered for comments starting with task-tags (by default: ["TODO", "FIXME", and "XXX"]).
+pydocstyle.convention = "numpy" # 可选: “google”, "numpy", "pep257"
