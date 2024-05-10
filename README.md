@@ -14,6 +14,7 @@ The package is still under development. The framework is designed to be extensib
 ## Install
 
 ```shell
+git clone https://github.com/LawrenceLiu023/bioreport.git
 pip install bioreport
 ```
 
