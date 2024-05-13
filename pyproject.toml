@@ -14,7 +14,7 @@ dynamic = ["version", "readme"]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 include = ["bioreport*"]
 namespaces = false
 

@@ -1,8 +1,25 @@
 site_name: "BioReport"
 
+nav:
+  # rest of the navigation...
+  - Overview: index.md
+  # defer to gen-files + literate-nav
+  - Code Reference: reference/
+  # rest of the navigation...
+
 theme:
   name: material
 
 plugins:
-- search
-- mkdocstrings
+  - search
+  - gen-files:
+      scripts:
+        - scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy

@@ -1,4 +1,4 @@
-# Overview
+# BioReport
 
 A package for processing bioinformatics reports.
 
