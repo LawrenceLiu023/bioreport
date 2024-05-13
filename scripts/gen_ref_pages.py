@@ -7,7 +7,7 @@ import mkdocs_gen_files
 nav = mkdocs_gen_files.Nav()
 
 root = Path(__file__).parent.parent
-src = root
+src = root / "src"
 
 for path in sorted(src.glob("bioreport/*.py")):
     if path.name.startswith("_"):
