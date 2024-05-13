@@ -30,5 +30,5 @@ class BaseModule:
         self.configs: dict = configs
 
     @abstractmethod
-    def parse(self:Self, report:Report, name:str|None=None) -> ReportSum:
+    def parse(self: Self, report: Report, name: str | None = None) -> ReportSum:
         raise NotImplementedError
