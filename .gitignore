@@ -1,17 +1,17 @@
 # python
-.venv
-__pycache__
+/.venv/
+__pycache__/
 
 # setup.py
-build
-dist
+/build/
+/dist/
 
 # test
-test
+/test/
 
 # development
-dev
-*.code-workspace
+/dev/
+/*.code-workspace
 
 # documentation generated files
-site
+/site/
