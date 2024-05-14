@@ -9,7 +9,7 @@ Current version supports the following report types:
 - bismark-align
 - bismark-deduplicate
 
-The package is still under development. The framework is designed to be extensible. More report types will be supported in the future.
+The package is still under development. The framework is designed to be extensible. More report types will be supported in the future. Track the progress on [GitHub](https://github.com/LawrenceLiu023/bioreport).
 
 ## Install
 
