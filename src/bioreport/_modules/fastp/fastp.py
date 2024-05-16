@@ -3,6 +3,7 @@ from typing import Hashable, Self
 
 import pandas as pd
 from bs4 import BeautifulSoup, Tag
+from pandas import Series
 
 from bioreport import _config
 from bioreport._base_module import BaseModule
@@ -28,7 +29,7 @@ class BioReportModule(BaseModule):
         ----------
         report : Report
             A fastp report.
-        name : Hashable | None
+        name : Hashable | None, default None
             The name of `report_sum`. Default is `None`, which means `report_sum` will be named as the report file name.
 
         Returns
@@ -46,7 +47,7 @@ class BioReportModule(BaseModule):
                 f"The submodule of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected submodule names: {self.submodules}"
             )
 
-        report_sum_series: pd.Series
+        report_sum_series: Series
         match report_submodule:
             case "html":
                 report_sum_series = self._submodule_html_parse(report)
@@ -67,7 +68,7 @@ class BioReportModule(BaseModule):
 
         return report_sum
 
-    def _submodule_html_parse(self: Self, report: Report) -> pd.Series:
+    def _submodule_html_parse(self: Self, report: Report) -> Series:
         """
         Parse a fastp report in html format.
 
@@ -78,7 +79,7 @@ class BioReportModule(BaseModule):
 
         Returns
         -------
-        report_sum_series : pd.Series
+        report_sum_series : Series
             The summary of the report.
         """
         with open(report.path, "r") as file:
@@ -132,10 +133,10 @@ class BioReportModule(BaseModule):
                     for key, value in table_info_dict.items()
                 }
             )
-        report_sum_series: pd.Series = pd.Series(report_sum_dict)
+        report_sum_series: Series = Series(report_sum_dict)
         return report_sum_series
 
-    def _submodule_json_parse(self: Self, report: Report) -> pd.Series:
+    def _submodule_json_parse(self: Self, report: Report) -> Series:
         """
         Parse a json report in html format.
 
@@ -146,7 +147,7 @@ class BioReportModule(BaseModule):
 
         Returns
         -------
-        report_sum_series : pd.Series
+        report_sum_series : Series
             The summary of the report.
         """
         with open(report.path, "r") as file:
@@ -180,5 +181,5 @@ class BioReportModule(BaseModule):
             **after_filtering_dict,
             **filtering_result_dict,
         }
-        result_sum_series: pd.Series = pd.Series(result_sum_dict)
+        result_sum_series: Series = Series(result_sum_dict)
         return result_sum_series
