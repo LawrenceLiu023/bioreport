@@ -239,5 +239,6 @@ class Report:
             package=_config.PACKAGE_NAME,
         )
         report_sum: ReportSum = module.BioReportModule().parse(report=self, name=name)
+        del module
 
         return report_sum
