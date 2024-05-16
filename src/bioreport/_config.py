@@ -1,7 +1,6 @@
 import pathlib
-from collections import defaultdict
-
 import tomllib
+from collections import defaultdict
 
 # package directories
 PACKAGE_DIR_PATH: pathlib.Path = pathlib.Path(__file__).absolute().parent

@@ -1,8 +1,8 @@
 """Process bioinformatics report."""
 
-import pathlib
 import re
 from importlib import import_module
+from pathlib import Path
 from typing import Any, Hashable, Self
 
 from bioreport import _config
@@ -15,7 +15,7 @@ class Report:
 
     Attributes
     ----------
-    path : pathlib.Path
+    path : Path
         The path to the report file.
     module : tuple[str, ...]
         The type of the file. The length of the tuple could be 0, 1 or 2.
@@ -35,12 +35,12 @@ class Report:
     """
 
     def __init__(
-        self: Self, path: str | pathlib.Path, module: tuple[str, ...] = tuple()
+        self: Self, path: str | Path, module: tuple[str, ...] = tuple()
     ) -> None:
-        self.path: pathlib.Path
+        self.path: Path
         if isinstance(path, str):
-            self.path = pathlib.Path(path).absolute()
-        elif isinstance(path, pathlib.Path):
+            self.path = Path(path).absolute()
+        elif isinstance(path, Path):
             self.path = path.absolute()
         else:
             raise TypeError(f"Invalid type of path: {type(path)}")
@@ -72,13 +72,13 @@ class Report:
         return len(self.module) == 0
 
     @classmethod
-    def match_file(cls, file: str | pathlib.Path) -> Self:
+    def match_file(cls, file: str | Path) -> Self:
         """
         Match a single file. Determine which type of report it is and return a `Report` object.
 
         Parameters
         ----------
-        file : str | pathlib.Path
+        file : str | Path
             The file to match.
 
         Returns
@@ -86,13 +86,13 @@ class Report:
         report : Report
             The type of the file. The length of the tuple could be 0, 1 or 2.
         """
-        file_path: pathlib.Path
+        file_path: Path
         if isinstance(file, str):
-            file_path = pathlib.Path(file).absolute()
-        elif isinstance(file, pathlib.Path):
+            file_path = Path(file).absolute()
+        elif isinstance(file, Path):
             file_path = file.absolute()
         else:
-            raise TypeError("file must be a string or pathlib.Path object")
+            raise TypeError("file must be a string or Path object")
 
         file_module_match: tuple[str, ...] = tuple()
 
@@ -102,7 +102,7 @@ class Report:
             return report
 
         def file_name_glob_check(
-            file_path: pathlib.Path, module_patterns: dict[str, str]
+            file_path: Path, module_patterns: dict[str, str]
         ) -> bool:
             pass_check: bool = True
             if (key_file_name_glob := "pattern_glob") in module_patterns.keys():
@@ -114,7 +114,7 @@ class Report:
             return pass_check
 
         def file_name_regex_check(
-            file_path: pathlib.Path, module_patterns: dict[str, str]
+            file_path: Path, module_patterns: dict[str, str]
         ) -> bool:
             pass_check: bool = True
             if (key_file_name_regex := "pattern_regex") in module_patterns.keys():
@@ -127,7 +127,7 @@ class Report:
             return pass_check
 
         def file_content_regex_check(
-            file_path: pathlib.Path, module_patterns: dict[str, str]
+            file_path: Path, module_patterns: dict[str, str]
         ) -> bool:
             pass_check: bool = True
             if (key_context_regex := "content_regex") in module_patterns.keys():

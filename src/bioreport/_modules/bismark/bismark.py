@@ -2,6 +2,7 @@ import re
 from typing import Hashable, Self
 
 import pandas as pd
+from pandas import Series
 
 from bioreport import _config
 from bioreport._base_module import BaseModule
@@ -33,7 +34,7 @@ class BioReportModule(BaseModule):
         ----------
         report : Report
             A bismark report.
-        name : Hashable | None
+        name : Hashable | None, default None
             The name of `report_sum`. Default is `None`, which means `report_sum` will be named as the report file name.
 
         Returns
@@ -41,7 +42,8 @@ class BioReportModule(BaseModule):
         report_sum : ReportSum
             A summary of the bismark report.
         """
-        if len(report.module) != 2:
+        module_tuple_len = 2
+        if len(report.module) != module_tuple_len:
             raise ValueError(
                 f"The module of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected module name: {_MODULE_NAME}. Expected submodule names: {self.submodules}"
             )
@@ -51,7 +53,7 @@ class BioReportModule(BaseModule):
                 f"The submodule of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected submodule names: {self.submodules}"
             )
 
-        report_sum_series: pd.Series
+        report_sum_series: Series
         match report_submodule:
             case "align":
                 report_sum_series = self._submodule_align_parse(report)
@@ -72,7 +74,7 @@ class BioReportModule(BaseModule):
 
         return report_sum
 
-    def _submodule_align_parse(self: Self, report: Report) -> pd.Series:
+    def _submodule_align_parse(self: Self, report: Report) -> Series:
         """
         Parse a bismark alignment report.
 
@@ -83,7 +85,7 @@ class BioReportModule(BaseModule):
 
         Returns
         -------
-        report_sum_series : pd.Series
+        report_sum_series : Series
             The summary of the report.
         """
         report_sum_dict: dict[str, str] = {}
@@ -97,10 +99,10 @@ class BioReportModule(BaseModule):
                 key: str = line_match.group("key")
                 value: str = line_match.group("value")
                 report_sum_dict.update({key: value})
-        report_sum_series: pd.Series = pd.Series(report_sum_dict)
+        report_sum_series: Series = Series(report_sum_dict)
         return report_sum_series
 
-    def _submodule_deduplicate_parse(self: Self, report: Report) -> pd.Series:
+    def _submodule_deduplicate_parse(self: Self, report: Report) -> Series:
         """
         Parse a bismark deduplicate report.
 
@@ -111,7 +113,7 @@ class BioReportModule(BaseModule):
 
         Returns
         -------
-        report_sum_series : pd.Series
+        report_sum_series : Series
             The summary of the report.
         """
         report_sum_dict: dict = {}
@@ -125,5 +127,5 @@ class BioReportModule(BaseModule):
                 key: str = line_match.group("key")
                 value: str = line_match.group("value")
                 report_sum_dict.update({key: value})
-        report_sum_series: pd.Series = pd.Series(report_sum_dict)
+        report_sum_series: Series = Series(report_sum_dict)
         return report_sum_series
