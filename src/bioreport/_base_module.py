@@ -20,15 +20,32 @@ class BaseModule:
 
     Methods
     -------
-    parse()
+    parse(report: Report, name: str | None = None)
         Parse a report file with the module. Returns the parsed report.
     """
 
-    def __init__(self, name="base", submodules: tuple[str, ...] = tuple(), configs={}):
+    def __init__(
+        self, name="base", submodules: tuple[str, ...] = tuple(), configs={}
+    ) -> None:
         self.name: str = name
         self.submodules: tuple[str, ...] = submodules
         self.configs: dict = configs
 
     @abstractmethod
     def parse(self: Self, report: Report, name: str | None = None) -> ReportSum:
+        """
+        Parse a report.
+
+        Parameters
+        ----------
+        report : Report
+            A report.
+        name : Hashable | None, default None
+            The name of `report_sum`. Default is `None`, which means `report_sum` will be named as the report file name.
+
+        Returns
+        -------
+        report_sum : ReportSum
+            A summary of the report.
+        """
         raise NotImplementedError
