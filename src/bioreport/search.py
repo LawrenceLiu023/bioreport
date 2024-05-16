@@ -6,7 +6,6 @@ import pathlib
 from rich.logging import RichHandler
 from rich.progress import track
 
-from bioreport import _config
 from bioreport.report import Report
 
 _logger: logging.Logger = logging.getLogger(__name__)
