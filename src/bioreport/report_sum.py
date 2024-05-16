@@ -64,7 +64,7 @@ class ReportSum:
         Returns
         -------
         multi_report_sum : DataFrame
-            A dataframe containing the concatenated data from all `ReportSum` objects.
+            A `DataFrame` containing the concatenated data from all `ReportSum` objects.
         """
         report_sum_module_list: list = [report_sum.module for report_sum in report_sums]
         if len(set(report_sum_module_list)) > 1:
