@@ -35,7 +35,6 @@ def scan_dir(dir: str | Path) -> list[Report]:
         dir_path = dir.absolute()
     _logger.info(f"Scanning directory: {str(dir_path)}")
 
-    report_path_to_module_dict: dict[Path, tuple[str, ...]] = {}
     file_found_list: list[Path] = []
     for curr_root, _, curr_files in dir_path.walk():
         curr_file_path_list: list[Path] = [Path(curr_root) / f for f in curr_files]
