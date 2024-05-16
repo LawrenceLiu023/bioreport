@@ -10,6 +10,8 @@ class ReportSum:
     """
     A class to represent a summary of a report.
 
+    The data is stored based on pandas `Series` in order to be compatible with pandas processing.
+
     Attributes
     ----------
     module : tuple[str, ...]
@@ -43,14 +45,6 @@ class ReportSum:
         return name
 
     def __repr__(self) -> str:
-        """
-        Return a string representation of the `ReportSum`.
-
-        Returns
-        -------
-        str
-            A string representation of the `ReportSum`.
-        """
         return f'{self.__class__.__name__}(type: "{self.module}", name: "{self.name}")'
 
     @classmethod
@@ -70,7 +64,7 @@ class ReportSum:
         Returns
         -------
         multi_report_sum : DataFrame
-            A dataframe containing the concatenated data from all `ReportSum` objects.
+            A `DataFrame` containing the concatenated data from all `ReportSum` objects.
         """
         report_sum_module_list: list = [report_sum.module for report_sum in report_sums]
         if len(set(report_sum_module_list)) > 1:
@@ -85,5 +79,12 @@ class ReportSum:
         return multi_report_sum
 
     def rename(self, name: Hashable | None) -> None:
-        """Change the name of the `data`."""
+        """
+        Change the name of the `data`.
+
+        Parameters
+        ----------
+        name : Hashable | None
+            The new name of the `data` attribute.
+        """
         self.data.name = name
