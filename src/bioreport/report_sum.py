@@ -10,6 +10,8 @@ class ReportSum:
     """
     A class to represent a summary of a report.
 
+    The data is stored based on pandas `Series` in order to be compatible with pandas processing.
+
     Attributes
     ----------
     module : tuple[str, ...]
@@ -43,14 +45,6 @@ class ReportSum:
         return name
 
     def __repr__(self) -> str:
-        """
-        Return a string representation of the `ReportSum`.
-
-        Returns
-        -------
-        str
-            A string representation of the `ReportSum`.
-        """
         return f'{self.__class__.__name__}(type: "{self.module}", name: "{self.name}")'
 
     @classmethod
@@ -85,5 +79,12 @@ class ReportSum:
         return multi_report_sum
 
     def rename(self, name: Hashable | None) -> None:
-        """Change the name of the `data`."""
+        """
+        Change the name of the `data`.
+
+        Parameters
+        ----------
+        name : Hashable | None
+            The new name of the `data` attribute.
+        """
         self.data.name = name

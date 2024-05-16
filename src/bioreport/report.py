@@ -210,24 +210,24 @@ class Report:
 
         Parameters
         ----------
-        update_module : bool
+        update_module : bool, default False
             Whether update the `module` of the `Report` object with the actual pattern of the file specified by `path`.
+        name : Hashable | None, default None
+            The name of the report. If `None`, the name of the report will be the same as the file name.
 
         Returns
         -------
         report_sum : ReportSum
             The parsed report.
         """
-        # update the `module`
         if update_module:
             updated_report: Report = self.match_file(file=self.path)
             self.module = updated_report.module
-        # check `module`
+
         if not self.with_matched_module():
             raise ValueError(
                 f"The report file pattern does not match the module specified: {str(self)}"
             )
-        # empty `module`
         if self.with_empty_module():
             raise ValueError(
                 f"The report file does not match any module pattern: {str(self)}"
