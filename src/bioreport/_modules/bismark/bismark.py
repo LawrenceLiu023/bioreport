@@ -42,7 +42,7 @@ class BioReportModule(BaseModule):
         report_sum : ReportSum
             A summary of the bismark report.
         """
-        module_tuple_len = 2
+        module_tuple_len:int = 2
         if len(report.module) != module_tuple_len:
             raise ValueError(
                 f"The module of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected module name: {_MODULE_NAME}. Expected submodule names: {self.submodules}"

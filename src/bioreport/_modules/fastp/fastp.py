@@ -37,7 +37,8 @@ class BioReportModule(BaseModule):
         report_sum : ReportSum
             A summary of the fastp report.
         """
-        if len(report.module) != 2:
+        module_tuple_len:int = 2
+        if len(report.module) != module_tuple_len:
             raise ValueError(
                 f"The module of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected module name: {_MODULE_NAME}. Expected submodule names: {self.submodules}"
             )
@@ -87,14 +88,14 @@ class BioReportModule(BaseModule):
 
         soup: BeautifulSoup = BeautifulSoup(html_content, "html.parser")
 
-        DIV_ID_LIST: list[str] = [
+        div_id_list: list[str] = [
             "general",
             "before_filtering_summary",
             "after_filtering_summary",
             "filtering_result",
         ]
 
-        div_list: list[Tag] = [soup.find("div", id=div_id) for div_id in DIV_ID_LIST]
+        div_list: list[Tag] = [soup.find("div", id=div_id) for div_id in div_id_list]
 
         def _summary_table_parse(table) -> dict[str, str]:
             info_dict: dict[str, str] = {}
@@ -109,7 +110,7 @@ class BioReportModule(BaseModule):
             return info_dict
 
         table_info_dict_list: list[dict[str, str]] = [
-            {} for _ in range(len(DIV_ID_LIST))
+            {} for _ in range(len(div_id_list))
         ]
         for div_index, div in enumerate(div_list):
             if not div:
@@ -124,8 +125,8 @@ class BioReportModule(BaseModule):
                 table_info_dict_list[div_index] = table_info_dict
 
         report_sum_dict: dict[tuple[str, str], str] = {}
-        for table_index in range(len(DIV_ID_LIST)):
-            table_info_type: str = DIV_ID_LIST[table_index]
+        for table_index in range(len(div_id_list)):
+            table_info_type: str = div_id_list[table_index]
             table_info_dict = table_info_dict_list[table_index]
             report_sum_dict.update(
                 {

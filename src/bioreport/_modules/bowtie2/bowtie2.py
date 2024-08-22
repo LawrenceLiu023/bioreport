@@ -19,12 +19,6 @@ class BioReportModule(BaseModule):
         super(BioReportModule, self).__init__(
             name=_MODULE_NAME, submodules=_config.MODULE_DICT[_MODULE_NAME], configs={}
         )
-        self.SUBMODULE_ALIGN_INFO_LINE_PATTERN: re.Pattern = re.compile(
-            r"(?P<key>^[^:^\n]+):\s*(?P<value>[\d\%\.]+)\s*(?P<bracket>\(.+\))?\s*$"
-        )
-        self.SUBMODULE_DEDUPLICATE_INFO_LINE_PATTERN: re.Pattern = re.compile(
-            r"(?P<key>^[^:^\n]+):\s*(?P<value>[\d\%\.]+)\s*(?P<bracket>\(.+\))?\s*$"
-        )
 
     def parse(self: Self, report: Report, name: Hashable | None = None) -> ReportSum:
         """
@@ -42,7 +36,7 @@ class BioReportModule(BaseModule):
         report_sum : ReportSum
             A summary of the bowtie2 report.
         """
-        module_tuple_len = 1
+        module_tuple_len = 2
         if len(report.module) != module_tuple_len:
             raise ValueError(
                 f"The module of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected module name: {_MODULE_NAME}. Expected submodule names: {self.submodules}"
@@ -55,10 +49,10 @@ class BioReportModule(BaseModule):
 
         report_sum_series: Series
         match report_submodule:
-            case "align":
-                report_sum_series = self._submodule_align_parse(report)
-            case "deduplicate":
-                report_sum_series = self._submodule_deduplicate_parse(report)
+            case "paired":
+                report_sum_series = self._submodule_summary_parse(report)
+            case "unpaired":
+                report_sum_series = self._submodule_summary_parse(report)
             case _:
                 raise ValueError(
                     f"The submodule of the report is not supported by {_MODULE_NAME} module: {str(report)}. Expected submodule names: {self.submodules}"
@@ -73,3 +67,33 @@ class BioReportModule(BaseModule):
         report_sum: ReportSum = ReportSum(module=report.module, data=report_sum_series)
 
         return report_sum
+
+    def _submodule_summary_parse(self: Self, report: Report) -> Series:
+        report_sum_dict: dict[str, str] = {}
+        with open(report.path, "r") as file:
+            for line in file:
+                line_str: str = line.strip()
+                if line.endswith("; of these:"):
+                    line_str = line.split(";")[0]
+                    if (curr_unit := line_str.split(" ")[1]) not in [
+                        "reads",
+                        "pairs",
+                        "mates",
+                    ]:
+                        curr_unit = "reads"
+                line_str_list: list[str] = line_str.split(" ")
+                value: str = line_str_list[0].strip()
+                percentage: str | None
+                key: str
+                if line_str_list[1].startswith("("):
+                    percentage = line_str_list[1].split("%")[0].strip()
+                    key = " ".join(line_str_list[2:])
+                else:
+                    percentage = None
+                    key = " ".join(line_str_list[1:])
+                report_sum_dict.update({f"{curr_unit} {key}": value})
+                if percentage is not None:
+                    report_sum_dict.update({f"percent {curr_unit} {key}": percentage})
+        report_sum_series: Series = Series(report_sum_dict)
+
+        return report_sum_series
