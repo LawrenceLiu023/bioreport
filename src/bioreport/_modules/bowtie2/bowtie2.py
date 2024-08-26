@@ -72,28 +72,37 @@ class BioReportModule(BaseModule):
         report_sum_dict: dict[str, str] = {}
         with open(report.path, "r") as file:
             for line in file:
-                line_str: str = line.strip()
-                if line.endswith("; of these:"):
-                    line_str = line.split(";")[0]
-                    if (curr_unit := line_str.split(" ")[1]) not in [
+                line_strip: str = line.strip()
+                if line_strip.startswith("-"):
+                    continue
+                line_strip_list: list[str] = line_strip.split(" ")
+                if line_strip.endswith("of these:"):
+                    if (curr_line_unit := line_strip_list[1].strip(";")) in [
                         "reads",
                         "pairs",
                         "mates",
                     ]:
-                        curr_unit = "reads"
-                line_str_list: list[str] = line_str.split(" ")
-                value: str = line_str_list[0].strip()
+                        curr_unit: str = curr_line_unit
+                    line_strip = line_strip.split(";")[0]
+                    line_strip_list = line_strip.split(" ")
+                value: str = line_strip_list[0].strip()
                 percentage: str | None
-                key: str
-                if line_str_list[1].startswith("("):
-                    percentage = line_str_list[1].split("%")[0].strip()
-                    key = " ".join(line_str_list[2:])
-                else:
-                    percentage = None
-                    key = " ".join(line_str_list[1:])
-                report_sum_dict.update({f"{curr_unit} {key}": value})
-                if percentage is not None:
+                key: str = " ".join(line_strip_list[1:])
+                if line_strip_list[1].startswith("("):
+                    percentage = line_strip_list[1][
+                        line_strip_list[1].index("(")
+                        + 1 : line_strip_list[1].index("%") :
+                    ]
+                    key: str = " ".join(line_strip_list[2:])
+                    report_sum_dict.update({f"{curr_unit} {key}": value})
                     report_sum_dict.update({f"percent {curr_unit} {key}": percentage})
+                elif line_strip_list[1] == curr_unit:
+                    report_sum_dict.update({f"{curr_unit}": value})
+                elif line_strip.endswith("rate"):
+                    value = value.strip("%")
+                    report_sum_dict.update({f"percent {key}": value})
+                else:
+                    report_sum_dict.update({f"{curr_unit} {key}": value})
         report_sum_series: Series = Series(report_sum_dict)
 
         return report_sum_series
