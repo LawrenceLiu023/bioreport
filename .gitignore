@@ -2,9 +2,8 @@
 /.venv/
 __pycache__/
 
-# setup.py
+# setuptools
 /build/
-/dist/
 *.egg-info/
 
 # test
