@@ -8,6 +8,8 @@ Current version supports the following report types:
 - fastp-html
 - bismark-align
 - bismark-deduplicate
+- bowtie2-paired
+- bowtie2-unpaired
 
 The package is still under development. The framework is designed to be extensible. More report types will be supported in the future.
 

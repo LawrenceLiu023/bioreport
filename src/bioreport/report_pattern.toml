@@ -21,3 +21,15 @@ pattern_glob = "*.deduplication_report.txt"
 content_regex = '''
 
 Total number of alignments analysed in.*'''
+
+[bowtie2-paired]
+pattern_glob = "*"
+content_regex = '''
+\d+ reads; of these:
+\s+\d+ \(100.00%\) were paired; of these:'''
+
+[bowtie2-unpaired]
+pattern_glob = "*"
+content_regex = '''
+\d+ reads; of these:
+\s+\d+ \(100.00%\) were unpaired; of these:'''
