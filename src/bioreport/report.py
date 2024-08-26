@@ -3,7 +3,7 @@
 import re
 from importlib import import_module
 from pathlib import Path
-from typing import Any, Hashable, Self
+from typing import Any, Hashable, Self, TextIO
 
 from bioreport import _config
 from bioreport.report_sum import ReportSum
@@ -72,6 +72,29 @@ class Report:
         return len(self.module) == 0
 
     @classmethod
+    def read_stripped_lines(cls, text_io: TextIO, line_num: int = -1) -> list[str]:
+        r"""
+        Read a file and return a list of lines without "\n" at the beginning and end.
+
+        Parameters
+        ----------
+        text_io: TextIO
+            The file to read.
+        line_num: int, default -1
+            The number of lines to read. Default -1, any number less than 0 means  all lines will be read.
+
+        Returns
+        -------
+        lines: list[str]
+            The list of lines without "\n" at the beginning and end.
+        """
+        lines: list[str] = []
+        while line_num > 0 and (file_line := text_io.readline()):
+            lines.append(file_line.strip("\n"))
+            line_num -= 1
+        return lines
+
+    @classmethod
     def match_file(cls, file: str | Path) -> Self:
         """
         Match a single file. Determine which type of report it is and return a `Report` object.
@@ -136,15 +159,19 @@ class Report:
                 ].splitlines()
                 module_content_regex_line_num: int = len(module_content_regex_line_list)
                 with open(file_path, "r") as f:
-                    file_content_line_list: list[str] = f.readlines(
-                        module_content_regex_line_num
+                    file_content_line_list: list[str] = cls.read_stripped_lines(
+                        text_io=f, line_num=module_content_regex_line_num
                     )
-                content_regex_match: re.Match[str] | None = re.match(
-                    pattern=r"\s+".join(module_content_regex_line_list),
-                    string="\n".join(file_content_line_list),
-                )
-                if content_regex_match is None:
+                if len(file_content_line_list) < module_content_regex_line_num:
                     pass_check = False
+                    return pass_check
+                for curr_line in range(module_content_regex_line_num):
+                    content_regex_match: re.Match[str] | None = re.match(
+                        pattern=module_content_regex_line_list[curr_line],
+                        string=file_content_line_list[curr_line],
+                    )
+                    if content_regex_match is None:
+                        pass_check = False
             return pass_check
 
         # match all report patterns
