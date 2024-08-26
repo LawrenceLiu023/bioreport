@@ -4,6 +4,7 @@ __pycache__/
 
 # setuptools
 /build/
+/dist/
 *.egg-info/
 
 # test
